@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import List from './List';
 
 class ListsContainer extends Component {
 
@@ -24,7 +25,11 @@ class ListsContainer extends Component {
   render() {
     return (
       <div className="Lists-container">
-        Lists
+        {this.state.lists.map( list => {
+          return (
+            <List list={list} key={list.id} />
+          )
+        })}
       </div>
     )
   }
